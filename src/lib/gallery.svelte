@@ -31,13 +31,13 @@
 
 	const ai = [
 		'og/dl8',
-		'og/dl4',
+		'ai/dl4-ai',
 		'ai/dl1-ai',
 		'og/dl6',
 		'og/dl5',
 		'og/ns7',
-		'og/dc4',
-		'og/ns4',
+		'ai/dc4-ai',
+		'ai/ns4-ai',
 		'ai/dc3-ai',
 		'ai/ns1-ai',
 		'og/dc8',
