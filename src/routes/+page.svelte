@@ -2,7 +2,7 @@
 	const shuffle = (arr: string[]) => arr.sort(() => Math.random() - 0.5);
 
 	let i = 0;
-	let t = 'ai';
+	let t: 'og' | 'ai' = 'ai';
 
 	const tps: string[] = ['dl', 'dc', 'ns'];
 	const og = shuffle(
@@ -19,7 +19,7 @@
 			.flat()
 	);
 
-	const imgs = { og, ai };
+	const imgs: { og: string[]; ai: string[] } = { og, ai };
 
 	// console.log(imgs);
 </script>
