@@ -37,25 +37,19 @@
 	{/each}
 </svelte:head>
 
-<div class="flex h-[100vh] w-[100vw] flex-col items-center justify-center gap-10">
-	<div class="flex items-center gap-8 text-4xl">
+<div class="flex h-screen w-screen flex-col items-center justify-center gap-2 overflow-hidden px-3">
+	<div class="flex items-center justify-center gap-4 text-3xl">
 		<button class="btn" on:click={() => (i > 0 ? i-- : i)}>←</button>
-		<div class="aspect-square w-[40vw] max-w-md rounded-md bg-red-500">
+		<div class="aspect-square w-[60%] max-w-md rounded-md bg-red-500">
 			<img src={`imgs/${imgs[t][i]}`} class="h-full w-full object-cover" alt="" />
 		</div>
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
 	</div>
-
-	<div class="text-3xl">{i + 1} of {imgs[t].length}</div>
-
-	<!-- <button
-		class="rounded-md bg-black p-2 text-lg text-white hover:bg-neutral-900"
-		on:click={() => (t === 'ai' ? (t = 'og') : (t = 'ai'))}>set: {t}</button
-	> -->
+	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
 </div>
 
 <style>
 	.btn {
-		@apply rounded-md bg-neutral-900 p-4 text-white;
+		@apply rounded-md bg-neutral-900 p-3 text-white;
 	}
 </style>
