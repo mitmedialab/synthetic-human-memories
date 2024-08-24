@@ -70,6 +70,9 @@
 			<link rel="preload" as="image" href={`imgs/${image}`} />
 		{/each}
 	{:else}
+		{#each [...imgs.og, ...imgs.ai] as image}
+			<link rel="preload" as="image" href={`imgs/${image}`} />
+		{/each}
 		{#each [...imgs.ogv, ...imgs.aiv] as image}
 			<link rel="preload" type="video/webm" as="video" href={`vids/${image}`} />
 		{/each}
