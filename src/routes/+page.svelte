@@ -24,6 +24,12 @@
 	// console.log(imgs);
 </script>
 
+<svelte:head>
+	{#each [...imgs.og, ...imgs.ai] as image}
+		<link rel="preload" as="image" href={`imgs/${image}`} />
+	{/each}
+</svelte:head>
+
 <div class="flex h-[100vh] w-[100vw] flex-col items-center justify-center gap-10">
 	<div class="flex items-center gap-8 text-4xl">
 		<button class="btn" on:click={() => (i > 0 ? i-- : i)}>←</button>
