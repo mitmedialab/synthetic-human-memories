@@ -71,7 +71,7 @@
 		{/each}
 	{:else}
 		{#each [...imgs.ogv, ...imgs.aiv] as image}
-			<link rel="preload" as="video" href={`vids/${image}`} />
+			<link rel="preload" type="video/webm" as="video" href={`vids/${image}`} />
 		{/each}
 	{/if}
 </svelte:head>
@@ -84,7 +84,20 @@
 				<img src={`imgs/${imgs[t][i]}`} class="h-full w-full object-cover" alt="" />
 			{:else}
 				<!-- svelte-ignore a11y-media-has-caption -->
-				<video src={`vids/${imgs[t][i]}`} playsinline autoplay muted loop class="w-[40vw]"></video>
+				<video
+					src={`vids/${imgs[t][i]}`}
+					playsinline
+					autoplay
+					muted
+					loop
+					class="w-[40vw]"
+					poster={`imgs/${imgs[t][i]}`}
+				></video>
+				<!-- <div class="grid grid-cols-12">
+					{#each imgs[t] as v}
+						<video src={`vids/${v}`} class="w-4" autoplay playsinline muted loop />
+					{/each}
+				</div> -->
 			{/if}
 		</div>
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
