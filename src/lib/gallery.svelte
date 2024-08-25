@@ -82,7 +82,7 @@
 <div class="flex h-screen w-screen flex-col items-center justify-center gap-2 overflow-hidden px-3">
 	<div class="flex items-center justify-center gap-4 text-3xl">
 		<button class="btn" on:click={() => (i > 0 ? i-- : i)}>←</button>
-		<div class="aspect-square w-[40vw] max-w-md overflow-hidden bg-neutral-500">
+		<div class="aspect-square w-[40vw] max-w-md overflow-hidden bg-transparent">
 			{#if ['og', 'ai'].includes(t)}
 				<img src={`imgs/${imgs[t][i]}`} class="h-full w-full object-cover" alt="" />
 			{:else}
