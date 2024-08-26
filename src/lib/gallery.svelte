@@ -112,6 +112,16 @@
 					>
 						<source src={`vids/${imgs[t][i]}`} type="video/webm" /></video
 					>
+					<div class="h-0 w-0">
+						{#if i < imgs[t].length - 2}
+							<video preload="auto" class="w-[40vw]">
+								<source src={`vids/${imgs[t][i + 1]}`} type="video/webm" /></video
+							>
+							<video preload="auto" class="w-[40vw]">
+								<source src={`vids/${imgs[t][i + 2]}`} type="video/webm" /></video
+							>
+						{/if}
+					</div>
 				{/key}
 				<!-- <div class="grid grid-cols-12">
 					{#each imgs[t] as v}
@@ -123,15 +133,6 @@
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
 	</div>
 	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
-	{#if !['og', 'ai'].includes(t)}
-		<div class="opacity-0">
-			{#each imgs[t] as v}
-				<video preload="auto" class="w-[0px]">
-					<source src={`vids/${v}`} type="video/webm" /></video
-				>
-			{/each}
-		</div>
-	{/if}
 	<!-- <button on:click={() => (t = t === 'og' ? 'ai' : 'og')}>{t}</button> -->
 </div>
 
