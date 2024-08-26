@@ -108,7 +108,7 @@
 		</div>
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
 	</div>
-	<div class="text-xl">{i + 1} of {imgs[t].length} {`vids/${imgs[t][i]}`}</div>
+	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
 	<!-- <button on:click={() => (t = t === 'og' ? 'ai' : 'og')}>{t}</button> -->
 </div>
 
