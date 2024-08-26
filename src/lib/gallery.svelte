@@ -103,7 +103,7 @@
 			on:click={() => {
 				i > 0 ? i-- : i;
 				canGo = false;
-				setTimeout(() => (canGo = true), 1000);
+				setTimeout(() => (canGo = true), 1500);
 			}}>←</button
 		>
 		<div class="aspect-square w-[40vw] max-w-md overflow-hidden bg-transparent">
@@ -146,7 +146,7 @@
 			on:click={() => {
 				i < imgs[t].length - 1 ? i++ : i;
 				canGo = false;
-				setTimeout(() => (canGo = true), 1000);
+				setTimeout(() => (canGo = true), 1500);
 			}}>→</button
 		>
 	</div>
