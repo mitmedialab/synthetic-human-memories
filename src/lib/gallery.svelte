@@ -117,6 +117,7 @@
 						autoplay
 						muted
 						loop
+						controls
 						class="w-[40vw]"
 						poster={`imgs/${imgs[t === 'ogv' ? 'og' : 'ai'][i]}`}
 					>
