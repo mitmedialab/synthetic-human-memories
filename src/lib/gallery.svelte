@@ -126,7 +126,7 @@
 	{#if !['og', 'ai'].includes(t)}
 		<div class="opacity-0">
 			{#each imgs[t] as v}
-				<video preload="metadata" class="w-[0px]">
+				<video preload="auto" class="w-[0px]">
 					<source src={`vids/${v}`} type="video/webm" /></video
 				>
 			{/each}
