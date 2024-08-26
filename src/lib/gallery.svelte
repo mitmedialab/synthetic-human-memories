@@ -65,17 +65,17 @@
 </script>
 
 <svelte:head>
-	{#if ['og', 'ai'].includes(t)}
-		{#each [...imgs.og, ...imgs.ai] as image}
+	{#if ['og', 'ogv'].includes(t)}
+		{#each [...imgs.og] as image}
 			<link rel="preload" as="image" href={`imgs/${image}`} />
 		{/each}
 	{:else}
-		{#each [...imgs.og, ...imgs.ai] as image}
+		{#each [...imgs.ai] as image}
 			<link rel="preload" as="image" href={`imgs/${image}`} />
 		{/each}
-		{#each [...imgs.ogv, ...imgs.aiv] as image}
+		<!-- {#each [...imgs.ogv, ...imgs.aiv] as image}
 			<link rel="preload" type="video/webm" as="video" href={`vids/${image}`} />
-		{/each}
+		{/each} -->
 	{/if}
 </svelte:head>
 
@@ -87,15 +87,18 @@
 				<img src={`imgs/${imgs[t][i]}`} class="h-full w-full object-cover" alt="" />
 			{:else}
 				<!-- svelte-ignore a11y-media-has-caption -->
-				<video
-					src={`vids/${imgs[t][i]}`}
-					playsinline
-					autoplay
-					muted
-					loop
-					class="w-[40vw]"
-					poster={`imgs/${imgs[t][i]}`}
-				></video>
+				{#key i}
+					<video
+						playsinline
+						autoplay
+						muted
+						loop
+						class="w-[40vw]"
+						poster={`imgs/${imgs[t === 'ogv' ? 'og' : 'ai'][i]}`}
+					>
+						<source src={`vids/${imgs[t][i]}`} type="video/webm" /></video
+					>
+				{/key}
 				<!-- <div class="grid grid-cols-12">
 					{#each imgs[t] as v}
 						<video src={`vids/${v}`} class="w-4" autoplay playsinline muted loop />
@@ -105,7 +108,7 @@
 		</div>
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
 	</div>
-	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
+	<div class="text-xl">{i + 1} of {imgs[t].length} {`vids/${imgs[t][i]}`}</div>
 	<!-- <button on:click={() => (t = t === 'og' ? 'ai' : 'og')}>{t}</button> -->
 </div>
 
