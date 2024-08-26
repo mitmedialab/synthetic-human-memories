@@ -62,6 +62,20 @@
 		ogv: og.map((x) => x + '.webm'),
 		aiv: ai.map((x) => x + '.webm')
 	};
+
+	$: i &&
+		(() => {
+			const videoEl = document.querySelector('video');
+			// check if video is loaded after 1 sec
+			const reloadVideo = () =>
+				videoEl &&
+				setTimeout(() => {
+					console.log('trigger');
+					videoEl.load();
+					videoEl.play();
+				}, 100);
+			if (!videoEl) reloadVideo();
+		})();
 </script>
 
 <svelte:head>
@@ -109,6 +123,13 @@
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
 	</div>
 	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
+	<div class="opacity-0">
+		{#each imgs[t] as v}
+			<video playsinline autoplay muted loop class="w-[0px]">
+				<source src={`vids/${v}`} type="video/webm" /></video
+			>
+		{/each}
+	</div>
 	<!-- <button on:click={() => (t = t === 'og' ? 'ai' : 'og')}>{t}</button> -->
 </div>
 
