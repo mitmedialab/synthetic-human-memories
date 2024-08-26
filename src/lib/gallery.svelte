@@ -63,6 +63,8 @@
 		aiv: ai.map((x) => x + '.webm')
 	};
 
+	let canGo = true;
+
 	$: i &&
 		(() => {
 			const videoEl = document.querySelector('video');
@@ -95,7 +97,15 @@
 
 <div class="flex h-screen w-screen flex-col items-center justify-center gap-2 overflow-hidden px-3">
 	<div class="flex items-center justify-center gap-4 text-3xl">
-		<button class="btn" on:click={() => (i > 0 ? i-- : i)}>←</button>
+		<button
+			class="btn"
+			disabled={!canGo}
+			on:click={() => {
+				i > 0 ? i-- : i;
+				canGo = false;
+				setTimeout(() => (canGo = true), 1000);
+			}}>←</button
+		>
 		<div class="aspect-square w-[40vw] max-w-md overflow-hidden bg-transparent">
 			{#if ['og', 'ai'].includes(t)}
 				<img src={`imgs/${imgs[t][i]}`} class="h-full w-full object-cover" alt="" />
@@ -130,7 +140,15 @@
 				</div> -->
 			{/if}
 		</div>
-		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
+		<button
+			class="btn"
+			disabled={!canGo}
+			on:click={() => {
+				i < imgs[t].length - 1 ? i++ : i;
+				canGo = false;
+				setTimeout(() => (canGo = true), 1000);
+			}}>→</button
+		>
 	</div>
 	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
 	<!-- <button on:click={() => (t = t === 'og' ? 'ai' : 'og')}>{t}</button> -->
@@ -138,6 +156,6 @@
 
 <style>
 	.btn {
-		@apply rounded-md bg-neutral-900 p-3 text-white;
+		@apply rounded-md bg-neutral-900 p-3 text-white disabled:bg-neutral-700;
 	}
 </style>
