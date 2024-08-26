@@ -123,13 +123,15 @@
 		<button class="btn" on:click={() => (i < imgs[t].length - 1 ? i++ : i)}>→</button>
 	</div>
 	<div class="text-xl">{i + 1} of {imgs[t].length}</div>
-	<div class="opacity-0">
-		{#each imgs[t] as v}
-			<video playsinline autoplay muted loop class="w-[0px]">
-				<source src={`vids/${v}`} type="video/webm" /></video
-			>
-		{/each}
-	</div>
+	{#if !['og', 'ai'].includes(t)}
+		<div class="opacity-0">
+			{#each imgs[t] as v}
+				<video playsinline autoplay muted loop class="w-[0px]">
+					<source src={`vids/${v}`} type="video/webm" /></video
+				>
+			{/each}
+		</div>
+	{/if}
 	<!-- <button on:click={() => (t = t === 'og' ? 'ai' : 'og')}>{t}</button> -->
 </div>
 
