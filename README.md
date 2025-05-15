@@ -1,5 +1,7 @@
 ## Synthetic Human Memories: AI-Edited Images and Videos Can Implant False Memories and Distort Recollection
 
+![synthetic](https://github.com/user-attachments/assets/c2d0042e-7695-4a70-8c78-a47f4553a18f)
+
 ## Author
 - Pat Pataranutaporn
 - Chayapatr Archiwaranguprok
