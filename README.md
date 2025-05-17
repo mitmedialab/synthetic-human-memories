@@ -23,9 +23,29 @@ AI is increasingly used to enhance images and videos, both intentionally and uni
 ├── static
 │   ├── result.csv          # Survey data
 │   ├── imgs                # Dataset (static image)
+│   │   ├── og              # condition: unedited images (Control)
+│   │   └── ai              # condition: ai-edited images
 │   └── vids                # Dataset (video)
-└── src                     # Web interface (embeded in Qualtric questionaire)
+│       ├── og              # condition: ai-generated videos of unedited images
+│       └── ai              # conditions: ai-generated videos of ai-edited images
+└── src                     # Web interface (embedded in Qualtric questionnaire)
 ```
+
+## Stimulus Set
+In the experiment, we utilized a carefully designed stimulus set to examine how different forms of AI-manipulated media affect memory formation. The dataset consists of 24 copyright-free images across three categories (daily life, news, and documentary/archival materials).
+
+These 24 base images were modified into four experimental conditions:
+- Control (unedited images): Original unmodified images
+- AI-edited images: Images edited using Adobe Photoshop AI
+- AI-generated videos of unedited images: Original images transformed into 5-second videos using Luma's Dream Machine
+- AI-generated videos of AI-edited images: AI-edited images transformed into 5-second videos
+
+The AI edits systematically target three types of content:
+- People: Changes to facial expressions, ethnicity, or gender
+- Objects: Addition or removal of items (military vehicles, stop signs, etc.)
+- Environments: Modifications to settings, time of day, or natural elements (ice melt, backgrounds)
+
+![Stimulus Set](https://github.com/user-attachments/assets/7300abea-2fcb-4da7-a2a1-755e47c841d7)
 
 ## Usage (Data Analysis)
 
